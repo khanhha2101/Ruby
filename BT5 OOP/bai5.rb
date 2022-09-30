@@ -8,7 +8,8 @@ class Canbo
       @diachi = diachi
     end
   
-      def show
+    def show
+        gt = "Nam"
         if gioitinh == 1
             gt = "Nam"
         else 
@@ -22,7 +23,7 @@ class Canbo
         print "\nHo ten: ", hoten
         print "\nGioi tinh: ", gt, " - Tuoi: ", tuoi
         print "\nDia chi: ", diachi
-      end  
+    end  
   end
 
 class Congnhan < Canbo
@@ -74,7 +75,7 @@ class QLCB
       @canbos = canbo
     end
 
-    def them 
+    def them
         print "Ho ten: "
         ht = gets
         print "Tuoin: "
@@ -89,18 +90,18 @@ class QLCB
         if cv == 1
             print "Bac: "
             bac = gets
-            canbo = new Congnhan(ht, tuoi, gt, dc, bac)
+            canbo = Congnhan.new(ht, tuoi, gt, dc, bac)
             canbos.unshift(canbo)
         else 
             if cv == 2
                 print "Nganh dao tao: "
                 nganh = gets
-                canbo = new Kysu(ht, tuoi, gt, dc, nganh)
+                canbo = Kysu.new(ht, tuoi, gt, dc, nganh)
                 canbos.unshift(canbo) 
             else
                 print "Cong viec: "
                 cviec = gets
-                canbo = new Nhanvien(ht, tuoi, gt, dc, cviec)
+                canbo =  Nhanvien.new(ht, tuoi, gt, dc, cviec)
                 canbos.unshift(canbo) 
             end
         end
@@ -108,7 +109,7 @@ class QLCB
 
     def show
         puts "DANH SACH CAN BO"
-        canbo.each do |val|
+        canbos.each do |val|
           val.show
           puts "\n------"
         end
@@ -116,6 +117,6 @@ class QLCB
 end
 
 dscanbo = []
-qlcb = new QLCB(dscanbo)
+qlcb = QLCB.new(dscanbo)
 qlcb.them
 qlcb.show
