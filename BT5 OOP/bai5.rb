@@ -10,14 +10,11 @@ class Canbo
   
     def show
         gt = "Nam"
-        if gioitinh == 1
-            gt = "Nam"
-        else 
-            if gioitinh == 2
-                gt = "Nu"
-            else
-                gt = "Khac"
-            end
+        if gioitinh == 2
+            gt = "Nu"
+        end
+        if gt == 3
+          gt = "Khac"
         end
 
         print "\nHo ten: ", hoten
@@ -91,19 +88,19 @@ class QLCB
             print "Bac: "
             bac = gets
             canbo = Congnhan.new(ht, tuoi, gt, dc, bac)
-            canbos.unshift(canbo)
+            canbos.push(canbo)
         else 
-            if cv == 2
+          if cv == 2
                 print "Nganh dao tao: "
                 nganh = gets
                 canbo = Kysu.new(ht, tuoi, gt, dc, nganh)
-                canbos.unshift(canbo) 
-            else
+                canbos.push(canbo) 
+          else
                 print "Cong viec: "
                 cviec = gets
                 canbo =  Nhanvien.new(ht, tuoi, gt, dc, cviec)
-                canbos.unshift(canbo) 
-            end
+                canbos.push(canbo)
+          end
         end
     end
 
